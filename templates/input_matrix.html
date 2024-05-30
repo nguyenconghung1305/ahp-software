@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AHP - Nhóm 9</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/slick/slick.css" rel="stylesheet">
+    <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/static/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="/static/assets/css/animated.css">
+    <link rel="stylesheet" href="/static/assets/css/owl.css">
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="/static/styles.css" />
+    <style>
+        .shadow-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .shadow-table th,
+        .shadow-table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .shadow-table input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Brand End -->
+
+    <!-- Nav Bar Start -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <h4>AHP SOFTWARE</h4>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/" class="active">Trang giới thiệu</a></li>
+                            <li class="scroll-to-section"><a href="/index1.html">Tiêu chí</a></li>
+                            <li class="scroll-to-section"><a href="/ghichupa.html">Phương án</a></li>
+                            <!-- <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
+                      <li class="scroll-to-section"><a href="#blog">Blog</a></li> 
+                      <li class="scroll-to-section"><a href="#contact">Message Us</a></li>  -->
+                            <li class="scroll-to-section">
+                                <div class="main-red-button"><a href="#contact">NHÓM 9</a></div>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Nav Bar End -->
+
+    <!-- Breadcrumb Start -->
+
+    <!-- Breadcrumb End -->
+
+    <!-- Add criteria Start-->
+    <div class="single-news">
+        <div class="container">
+            <div class="row">
+
+                <div style="margin: 120px 10px 0px;" class="col-lg-12">
+                    <center>
+                        <h3 style="color: #ff4d4d; ">MA TRẬN SO SÁNH CẶP CỦA MỖI TIÊU CHÍ</h3>
+                        <br>
+
+                        <div>
+                            <form action="/sum" method="post">
+                                <input type="number" id="myNumber" name="number" value="{{ number }}" hidden />
+                                <input type="text" name="tc" value="{{ ten_tieu_chi }}" hidden />
+                                <table style="background-color: bisque; width: 800px;" class="shadow-table" id="demotd">
+
+                                    <script>
+                                        var n = document.getElementById("myNumber").value;
+                                        let td = "{% for cell in tc %} <th>{{ cell }}</th> {% endfor %}";
+                                        for (var i = 0; i < n; i++) {
+                                            td = td + "<tr>";
+                                            for (var j = 0; j < n; j++) {
+                                                if (i == j) {
+                                                    td = td + "<td><input placeholder='1' disabled style='text-align: center;' /></td>";
+                                                } else if (i < j) {
+                                                    td = td + "<td><input name='value" + i + j + "' onchange='validateInput(this)' style='background-color: aliceblue; text-align: center; border: 1px solid;' /></td>";
+                                                } else {
+                                                    td = td + "<td><input disabled /></td>";
+                                                }
+                                            }
+                                            td = td + "</tr>";
+                                        }
+                                        document.getElementById("demotd").innerHTML = td;
+
+                                        function validateInput(input) {
+                                            var value = parseFloat(input.value);
+                                            if (isNaN(value) || value <= 1 / 9 || value > 9) {
+                                                input.setCustomValidity("Vui lòng nhập giá trị từ 1/9 đến 9.");
+                                                input.reportValidity();
+                                                input.style.backgroundColor = 'lightcoral';
+                                                input.value = "";
+                                            } else {
+                                                input.setCustomValidity("");
+                                                input.style.backgroundColor = 'aliceblue';
+                                            }
+                                        }
+
+                                    </script>
+
+
+                                </table>
+
+
+                                <div style="margin-top: 20px;" class="main-red-button">
+                                    <button
+                                        style=" background-color: #ff4d4d; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;"
+                                        type="submit" class="btn">
+                                        <i class="fas fa-cog"></i> Xử lý ma trận
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </center>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <footer style="margin-top: 90px; padding: 1px; height: 50px;" id="contact" class="contact-us section">
+        <div class="container">
+            <p style="text-align: center; margin-top: 10px; color: white;">Copyright &copy; 2024 Nhóm 9.
+                All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add criteria End-->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+<!-- <link rel="stylesheet" href="/static/styles.css" /> -->

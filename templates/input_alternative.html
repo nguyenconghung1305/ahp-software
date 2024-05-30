@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>AHP - Nhóm 9</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link rel="stylesheet" href="/static/styles.css" />
+    </head>
+
+    <body>
+      
+
+
+        <!-- Nav Bar Start -->
+        <div class="nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a href="/" class="nav-item nav-link">Trang giới thiệu</a>
+
+                            <a href="/index1.html" class="nav-item nav-link active">Tiêu chí</a>
+                            <a href="" class="nav-item nav-link">Phương án</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="single-news">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                      <h1>MA TRẬN SO SÁNH CẶP</h1>
+                        <div class="table-container">
+                            <div">
+                                <!-- <img src="{{ url_for('static', filename='img/news-825x525.jpg') }}" /> -->
+
+                            </div>
+                            
+
+                            <div>
+                                <form action="/pa1_CR" method="post">
+                                    <input type="number" id="myNumber" name="number" value="{{ number }}" hidden />
+                                    <input type="text" name="tc" value="{{ ten_tieu_chi }}" hidden />
+                                    <table class="single-table" id="demotd">
+                                        
+                                        <script>
+                                            var n = document.getElementById("myNumber").value;
+                                            let td = "";
+                                            for (var k = 0; k < n; k++){
+                                                td = td + "<th>PA" + (k + 1) + "</th>"
+                                            }
+                                            for (var i = 0; i < n; i++) {
+                                                td = td + "<tr>"
+                                                for (var j = 0; j < n; j++) {
+                                                    if (i == j) {
+                                                        td = td + "<td><input placeholder=1 disabled /></td>";
+                                                    }
+                                                    if (i < j) {
+                                                        td = td + "<td><input name=value" + i + j + " /></td>";
+                                                    }
+                                                    if (i > j) {
+                                                        td = td + "<td><input disabled /></td>";
+                                                    }
+                                                }
+                                                td = td + "</tr>"
+                                            }
+                                            document.getElementById("demotd").innerHTML = td;
+                                        </script>
+                                    </table>
+                                    <br>
+                                    <button type="submit" class="btn">Xác nhận</button>
+                                </form>
+                                  
+                              </div>
+
+                        </div>
+                        
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+      
+        
+        
+
+    
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
+
+<!-- <link rel="stylesheet" href="/static/styles.css" /> -->

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>AHP - Nhóm 9</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+        <link rel="stylesheet" href="/static/assets/fonts/fontawesome-free-6.5.2-web/css/all.min.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
+        <link rel="stylesheet" href="/static/assets/css/templatemo-space-dynamic.css">
+        <link rel="stylesheet" href="/static/assets/css/animated.css">
+        <link rel="stylesheet" href="/static/assets/css/owl.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <!-- Template Stylesheet -->
+        <link rel="stylesheet" href="/static/styles.css" />
+
+
+    </head>
+
+    <body>
+        <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+                            <!-- ***** Logo Start ***** -->
+                            <a href="index.html" class="logo">
+                                <h4>AHP SOFTWARE</h4>
+                            </a>
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <li class="scroll-to-section"><a href="/" class="active">Trang giới thiệu</a></li>
+                                <li class="scroll-to-section"><a href="/index1.html">Tiêu chí</a></li>
+                                <li class="scroll-to-section"><a href="/ghichupa.html">Phương án</a></li>
+    
+                                <li class="scroll-to-section">
+                                    <div class="main-red-button"><a href="#contact">NHÓM 9</a></div>
+                                </li>
+                            </ul>
+                            <a class='menu-trigger'>
+                                <span>Menu</span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Add criteria Start-->
+        <center>
+            <div class="single-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="color: #ff4d4d; margin-top: 100px;">Trọng số các phương án theo các tiêu chí</h1>
+                        <div class="table-container">
+                        
+                            
+                        </div>
+                            <div class="sn-container">
+                                <table class="shadow-table" style="background-color: bisque; width: 1000px;">
+                                    <tr>
+                                        <th style="background-color: yellow; border: 1px solid black; width: 50px;"></th>
+                                        {% for cell in tc %}
+                                        <th style="background-color: aqua; border: 1px solid black; width: 50px; text-align: center;">{{ cell }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                    {% for i in range(arr|length) %}
+                                    <tr>
+                                        <th style="background-color: lightgreen; border: 1px solid black; text-align: center; width: 50px;">
+                                            <strong>Phương án {{ i + 1 }}</strong>
+                                        </th>
+                                        {% for cell in arr[i] %}
+                                        <td style="background-color: bisque; border: 1px solid black; text-align: center;">{{ cell }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                
+                                
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="color: #ff4d4d;">Trọng số các tiêu chí</h1>
+
+                            <div class="sn-container">
+                                <table class="single-table" style="width: 350px; border: 1px solid black; ">
+                                    <tr>
+                                        <th style="background-color: lightgreen; border: 1px solid black; text-align: center; width: 50px;">Tiêu chí</th>
+                                        <th style="background-color: lightgreen; border: 1px solid black; text-align: center; width: 50px;">Trọng số</th>
+                                    </tr>
+                                    {% for i in range(FtrongSoList|length) %}
+                                    <tr>
+                                        <td style="background-color: aqua; border: 1px solid black; text-align: center;"><strong>{{ tc[i] }}</strong></td>
+                                        <td style="border: 1px solid black; text-align: center; background-color: bisque;">{{ FtrongSoList[i] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                
+                                
+                            </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="color: #ff4d4d;">Điểm số các phương án</h1>
+                        <div class="table-container">
+                        
+                        </div>
+                            <div class="sn-container">
+                                <table class="single-table" style="width: 300px; border: 1px solid black;">
+                                    <tr>
+                                        <th style="background-color: yellow; border: 1px solid black; text-align: center; width: 50px;">Phương án</th>
+                                        <th style="background-color: yellow; border: 1px solid black; text-align: center; width: 50px;">Điểm số</th>
+                                    </tr>
+                                    {% for i in range(pa|length) %}
+                                    <tr>
+                                        <th style="background-color: lightgreen; border: 1px solid black; text-align: center; width: 50px;">{{ pa[i] }}</th>
+                                        <td style="background-color: aqua; border: 1px solid black; text-align: center;">{{ diemSoPA[i] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </center>
+        
+        <!-- Add criteria End-->        
+        
+        <footer style="margin-top: 80px; padding: 1px; height: 50px;" id="contact" class="contact-us section">
+            <div class="container">
+                <p style="text-align: center; margin-top: 10px; color: white;">Copyright &copy; 2024 Nhóm 9. All rights
+                    reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
+
+<!-- <link rel="stylesheet" href="/static/styles.css" /> -->
